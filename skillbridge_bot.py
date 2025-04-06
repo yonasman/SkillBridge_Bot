@@ -3,10 +3,14 @@ import asyncio
 from telegram import Update, ReplyKeyboardMarkup,InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ConversationHandler, CallbackContext,CallbackQueryHandler
 from datetime import datetime
-# import nest_asyncio
+from dotenv import load_dotenv
+import os
 from google_sheets_handler import add_student_to_course
 
-TOKEN = "8097601929:AAFqqfKxU5tioOFj_E3Ch9yRmEbeVzbe7FI"
+#load the .env file
+load_dotenv()
+
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 # # Define states
 CHOOSING_TYPE, BOOTCAMP_SELECTION,SHOLARSHIP_SELECTION,LANGUAGE_SELECTION, REGISTRATION_NAME, REGISTRATION_PHONE, REGISTRATION_EMAIL, REGISTRATION_PROFESSION, SCHOLARSHIP_REASON, \
